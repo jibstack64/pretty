@@ -1,5 +1,6 @@
 # pretty
 
+[![License: MIT](https://img.shields.io/badge/license-MIT-orange.svg)](https://opensource.org/licenses/MIT)
 ![Downloads](https://img.shields.io/github/downloads/jibstack64/pretty/total)
 [![Version](https://img.shields.io/badge/version-v0.1-success)](https://github.com/jibstack64/pretty/releases)
 
