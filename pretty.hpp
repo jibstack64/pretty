@@ -1,5 +1,5 @@
 // https://github.com/jibstack64/pretty
-// a simple, lightweight, unix console-colouring2 library for C++, all in one header file!
+// a simple, lightweight, unix console-colouring library for C++, all in one header file!
 
 #ifndef PRETTY_HPP
 #define PRETTY_HPP
