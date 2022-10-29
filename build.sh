@@ -1,0 +1,1 @@
+g++ pretty_tests.cpp -o test.o
