@@ -3,7 +3,7 @@
 ![Downloads](https://img.shields.io/github/downloads/jibstack64/pretty/total)
 [![Version](https://img.shields.io/badge/version-v0.1-green)](https://github.com/jibstack64/pretty/releases)
 
-#### A simple lightweight unix console-colouring library for C++, all in one header file!
+#### A simple, lightweight unix console-colouring library for C++, all in one header file!
 
 ### Colours
 ![C++ map of colours](https://user-images.githubusercontent.com/107510599/198850914-5631c86c-7748-4c89-a16b-4acc00f12730.png)
