@@ -41,7 +41,7 @@ The `paint` function can also be used in the same way as the `ColourSet` constru
 std::cout << pty::paint("I love C++!", {"yellow", "dim"}) << std::endl;
 
 // alternatively with an array
-std::vector<std::string> clrs = {"yellow", "bluebg", "underlined"};
+std::vector<const char *> clrs = {"yellow", "bluebg", "underlined"};
 std::cout << pty::paint("I love C!", clrs) << std::endl;
 ```
 Need to save coloured text for later, or maybe remove ANSI sequences from a string?
