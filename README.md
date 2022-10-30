@@ -44,11 +44,18 @@ std::cout << pty::paint("I love C++!", {"yellow", "dim"}) << std::endl;
 std::vector<std::string> clrs = {"yellow", "bluebg", "underlined"};
 std::cout << pty::paint("I love C!", clrs) << std::endl;
 ```
+Need to save coloured text for later, or maybe remove ANSI sequences from a string?
+```cpp
+std::string coloured = pty::paint("I'll need this later!", {"blue", "yellowbg"});
+
+// use the 'normal(...)' function to "normalise" a string (remove ANSI escape sequences)
+std::cout << pty::normal(coloured) << std::endl;
+// output will be plain, uncoloured text
+```
 
 ### Testing
 `pretty_tests.cpp` contains code for testing and checking the functionality of changes made in `pretty.hpp`. This is to be updated and used to verify every major addition to `pretty.hpp`.
 
 ### Future changes
-- [ ] Lower overheads from pedantic use of `std::string`.
-- [ ] `dim`, `bold` and `normal` functions for dimming, brightening and removing escape codes from text.
+- [x] `dim`, `bold` and `normal` functions for dimming, brightening and removing escape codes from text.
   

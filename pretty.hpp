@@ -18,7 +18,16 @@ namespace pty {
 
     // holds stylings for later use through the 'apply' function or paint(ColourSet)
     class ColourSet;
-    
+
+    // dims value
+    const std::string dim(const char * value);
+
+    // brightens value
+    const std::string bright(const char * value);
+
+    // removes all escape sequences from value
+    const std::string normal(const char * value);
+
     // paints the given value with the the fore/back/style names provided
     template<typename T>
     const std::string paint(T value, std::vector<const char *> cns);
@@ -68,6 +77,33 @@ namespace pty {
     template<typename T>
     const std::string ColourSet::apply(T value) {
         return paint(value, this->_styles);
+    }
+
+    const std::string dim(const char * value) {
+        return paint(value, "dim");
+    }
+
+    const std::string bright(const char * value) {
+        return paint(value, "bright");
+    }
+
+    const std::string normal(const std::string value) {
+        std::ostringstream oss;
+        bool zon = false;
+        for (int i = 0; i < value.size(); i++) {
+            if (value[i] == '\x1B') {
+                zon = true;
+            }
+            if (zon) {
+                if (value[i] == 'm') {
+                    zon = false;
+                }
+                continue;
+            } else {
+                oss << value[i];
+            }
+        }
+        return oss.str();
     }
 
     template<typename T>
