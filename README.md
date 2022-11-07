@@ -56,6 +56,7 @@ std::cout << pty::normal(coloured) << std::endl;
 ### Testing
 `pretty_tests.cpp` contains code for testing and checking the functionality of changes made in `pretty.hpp`. This is to be updated and used to verify every major addition to `pretty.hpp`.
 
-### Future changes
+### Future changes and notes
 - [x] `dim`, `bold` and `normal` functions for dimming, brightening and removing escape codes from text.
-  
+
+> `char` arrays were originally going to be used over `std::string`. This was scrapped because of [the speed and superiority of `std::string`](https://stackoverflow.com/questions/21946447/how-much-performance-difference-when-using-string-vs-char-array) and the fact that the 8 bits in a standard `char` are not enough to store the content of an ANSI escape sequence, let alone multiple.
