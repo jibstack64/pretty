@@ -10,7 +10,7 @@
 #include <map>
 
 #define TEMPLATE "\x1B[%dm"
-#define RESET "\033[0m\t\t"
+#define RESET "\033[0m"
 
 //#define MAX 5 // maximum no. of fg, bg & styles
 
