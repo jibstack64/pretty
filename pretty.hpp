@@ -9,24 +9,22 @@
 #include <vector>
 #include <map>
 
-#define TEMPLATE "\x1B[%dm"
-#define RESET "\033[0m"
-
-//#define MAX 5 // maximum no. of fg, bg & styles
-
 namespace pty {
 
     // holds stylings for later use through the 'apply' function or paint(ColourSet)
     class ColourSet;
 
     // dims value
-    const std::string dim(const char * value);
+    template<typename T>
+    const std::string dim(T value);
 
     // brightens value
-    const std::string bright(const char * value);
+    template<typename T>
+    const std::string bright(T value);
 
     // removes all escape sequences from value
-    const std::string normal(const char * value);
+    template<typename T>
+    const std::string normal(T value);
 
     // paints the given value with the the fore/back/style names provided
     template<typename T>
@@ -37,6 +35,9 @@ namespace pty {
     //
     template<typename T>
     const std::string paint(T value, const char * cn);
+    //
+    template<typename T>
+    const std::string paint(T value, const std::string cn);
     //
     template<typename T>
     const std::string paint(T value, ColourSet& cs);
@@ -60,6 +61,9 @@ namespace pty {
         //{"riverced", 26}, {"framed", 51}, {"flashing", 5}
     };
 
+    const char * TEMPLATE = "\x1B[%dm";
+    const char * RESET = "\033[0m";
+
     class ColourSet {
         private:
             const std::vector<const char *> _styles;
@@ -79,15 +83,18 @@ namespace pty {
         return paint(value, this->_styles);
     }
 
-    const std::string dim(const char * value) {
+    template<typename T>
+    const std::string dim(T value) {
         return paint(value, "dim");
     }
 
-    const std::string bright(const char * value) {
-        return paint(value, "bright");
+    template<typename T>
+    const std::string bright(T value) {
+        return paint(value, "bold");
     }
-
-    const std::string normal(const std::string value) {
+    
+    template<typename T>
+    const std::string normal(T value) {
         std::ostringstream oss;
         bool zon = false;
         for (int i = 0; i < value.size(); i++) {
@@ -130,6 +137,11 @@ namespace pty {
     template<typename T>
     const std::string paint(T value, const char * cn) {
         return paint(value, {cn});
+    }
+    //
+    template<typename T>
+    const std::string paint(T value, const std::string cn) {
+        return paint(value, {cn.c_str()});
     }
     //
     template<typename T>
