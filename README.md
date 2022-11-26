@@ -55,7 +55,7 @@ std::cout << pty::normal(coloured) << std::endl;
 
 ### Notes
 - pretty **works on Windows systems** just as it does on Unix.
-- `char` arrays were originally going to be used over `std::string`. This was scrapped because of [the speed and superiority of `std::string`](https://stackoverflow.com/questions/21946447/how-much-performance-difference-when-using-string-vs-char-array) and the fact that the 8 bits in a standard `char` are not enough to store the content of an ANSI escape sequence, similar to how some Unicode characters cannot be stored in a basic `char`.
+- `char` arrays were originally going to be used over `std::string`. This was scrapped because of [the speed and superiority of `std::string`](https://stackoverflow.com/questions/21946447/how-much-performance-difference-when-using-string-vs-char-array) and the fact that the 8 bits in a standard `char` are not enough to store the content of an ANSI escape sequence, similar to how some Unicode characters cannot be stored in a basic `char`; `std::string` handles this, and with great efficiency.
 
 ### Testing
 `pretty_tests.cpp` contains code for testing and checking the functionality of changes made in `pretty.hpp`. This is to be updated and used to verify every major addition to `pretty.hpp`.
